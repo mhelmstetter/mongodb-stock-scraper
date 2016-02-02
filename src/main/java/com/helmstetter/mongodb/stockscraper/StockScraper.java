@@ -45,7 +45,7 @@ public class StockScraper {
     private Integer years;
     
     TickerScraper tickerScraper;
-    CompanyScraper companyScraper;
+    //CompanyScraper companyScraper;
     int tickerCount = 0;
     
     public void scrape() throws IOException {
@@ -57,7 +57,7 @@ public class StockScraper {
     }
     
     private void scrape(Set<String> symbols) throws IOException {
-        companyScraper.scrape(symbolList);
+        //companyScraper.scrape(symbolList);
         
         tickerCount = 0;
         for (String symbol : symbols) {
@@ -72,7 +72,7 @@ public class StockScraper {
         
         if (! cursor.hasNext()) {
             logger.debug(String.format("No companies in \"%s\" collection, scraping company list", companyCollection));
-            companyScraper.scrape();
+            //companyScraper.scrape();
         }
         
         cursor = companyCollection.find(null, projection);
@@ -184,7 +184,7 @@ public class StockScraper {
         
 
         tickerScraper = new TickerScraper(tickerCollection);
-        companyScraper = new CompanyScraper(companyCollection);
+        //companyScraper = new CompanyScraper(companyCollection);
 
         DateTime dt = new DateTime();
         MutableDateTime mdt = dt.toMutableDateTime();

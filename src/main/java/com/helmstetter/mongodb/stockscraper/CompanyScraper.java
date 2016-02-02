@@ -58,6 +58,7 @@ public class CompanyScraper {
         if (code != 200) {
             throw new IOException("Response not 200 OK, code=" + code);
         }
+        logger.debug("Scrape response code: " + code);
         InputStreamReader inStream = new InputStreamReader(urlConn.getInputStream());
         BufferedReader buff = new BufferedReader(inStream);
         //String stringLine;
